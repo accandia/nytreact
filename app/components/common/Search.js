@@ -35,7 +35,7 @@ const Search = props =>
 
               <div className="form-group">
                 <label htmlFor="endYear">End Year (Optional):</label>
-                <input type="text" className="form-control" id="endYear" placeholder="2017" value={props.endYear} onChange={props.handleEndYear} />
+                <input type="text" className="form-control" id="endYear" placeholder="2018" value={props.endYear} onChange={props.handleEndYear} />
               </div>
 
               <button onClick={props.handleFormSubmit} type="submit" className="btn btn-default" id="run-search"><i className="fa fa-search" aria-hidden="true" /> Search</button>

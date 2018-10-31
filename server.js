@@ -7,7 +7,7 @@ var bodyParser = require("body-parser");
 var routes = require("./routes/routes");
 
 // Set up a default port, configure mongoose, configure our middleware
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3100;
 mongoose.Promise = bluebird;
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,11 +16,13 @@ app.use(express.static(__dirname + "/public"));
 app.use("/", routes);
 
 // heroku will supply this MONGODB_URI if configured with heroku addons:create mongolab
-if (process.env.MONGODB_URI) {
-  mongoose.connect(process.env.MONGODB_URI);
-} else {
-  mongoose.connect("mongodb://localhost/articlesApp");
-}
+// if (process.env.MONGODB_URI) {
+//   mongoose.connect(process.env.MONGODB_URI);
+// } else {
+//   mongoose.connect("mongodb://localhost/articlesApp");
+// }
+
+mongoose.connect("mongodb://localhost/articlesApp")
 
 var db = mongoose.connection;
 
